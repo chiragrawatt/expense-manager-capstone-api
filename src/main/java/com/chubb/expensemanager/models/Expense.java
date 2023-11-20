@@ -19,15 +19,19 @@ import lombok.ToString;
 public class Expense {
 	@Id
 	private String id;
-	private Long amount;
+	private Double amount;
 	private ExpenseCategory category;
 	private String date;
+
 	private String receipt;
+	
 	private String description;
-	private ExpenseStauts status;
+	private ExpenseStatus status;
 	private String rejectionMessage;
+	
 	@DocumentReference(lazy = true)
 	private User creator;
-	@DocumentReference(lazy = true)
+	
+	@DocumentReference
 	private Event event;
 }

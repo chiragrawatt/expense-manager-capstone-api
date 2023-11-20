@@ -22,14 +22,13 @@ public class Event {
 	private String title;
 	private String description;
 	private Long totalBudget;
-	private Long remainingBudget;
 	private String startDate;
 	private String endDate;
 	private Boolean isActive;
+	private Boolean isIndividual;
 	
-	@DocumentReference(lazy = true)
+	@DocumentReference
 	private User creator;
 	
-	@DocumentReference(lazy = true)
-	private List<User> participants;
+	private List<EventParticipant> participants;
 }

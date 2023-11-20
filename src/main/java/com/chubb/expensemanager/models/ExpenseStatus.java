@@ -1,5 +1,5 @@
 package com.chubb.expensemanager.models;
 
-public enum ExpenseStauts {
+public enum ExpenseStatus {
 	PENDING, APPROVED, REJECTED
 }

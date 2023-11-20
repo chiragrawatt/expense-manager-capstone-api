@@ -1,6 +1,7 @@
 package com.chubb.expensemanager.models;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
@@ -35,6 +36,8 @@ public class User {
 	
 	@DocumentReference(lazy = true)
 	private Team team;
+	
+	private List<Notification> notifications;
 	
 	@NotBlank
 	@JsonIgnore

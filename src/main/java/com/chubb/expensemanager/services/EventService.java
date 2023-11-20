@@ -19,4 +19,10 @@ public interface EventService {
 	public Event addEvent(Event newEvent);
 	
 	public Event findEventByid(String eventId);
+
+	List<Event> getEventsByIsIndividualAndIsActive(Boolean isIndividual, Boolean isActive);
+
+	Integer addEvents(List<Event> events);
+
+	Integer updateParticipantRemainingBudget(String eventId, String participantId, Double expenseAmount);
 }

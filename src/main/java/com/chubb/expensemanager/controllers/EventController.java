@@ -69,6 +69,20 @@ public class EventController {
 		return ResponseEntity.of(Optional.of(event));
 	}
 	
+	@PostMapping("/multiple")
+	public ResponseEntity<Integer> addEvents(@RequestBody List<Event> events,Authentication authentication) {
+		UserDetailsImpl user = (UserDetailsImpl) authentication.getPrincipal();
+		System.out.println(user);
+		
+		Integer added = eventService.addEvents(events);
+
+		if (added == 0) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+
+		return ResponseEntity.of(Optional.of(added));
+	}
+	
 	@GetMapping("/{eventId}")
 	public ResponseEntity<Event> getEventByid(@PathVariable String eventId, Authentication authentication) {
 		UserDetailsImpl user = (UserDetailsImpl) authentication.getPrincipal();
